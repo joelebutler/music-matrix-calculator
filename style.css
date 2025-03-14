@@ -1,0 +1,99 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    flex-shrink: 0 !important;
+}
+html {
+    min-width: fit-content;
+}
+body {
+    margin: 0;
+}
+header {
+    text-align: center;
+    margin:15px;
+}
+td {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    min-width: 25px;
+    min-height: 25px;
+    border: 1px rgb(171, 171, 171) solid;
+    padding: 0px;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;   
+}
+.even:not(.corner), #footer:nth-child(n):hover  {
+    background-color: rgb(239, 239, 239);
+    font-weight: normal;
+}
+.corner {
+    border: none;
+    background-color: rgb(255, 255, 255);
+}
+table:has(td:nth-child(2):hover) td:nth-child(2), table:has(td:nth-child(3):hover) td:nth-child(3),
+table:has(td:nth-child(4):hover) td:nth-child(4), table:has(td:nth-child(5):hover) td:nth-child(5),
+table:has(td:nth-child(6):hover) td:nth-child(6), table:has(td:nth-child(7):hover) td:nth-child(7),
+table:has(td:nth-child(8):hover) td:nth-child(8), table:has(td:nth-child(9):hover) td:nth-child(9),
+table:has(td:nth-child(10):hover) td:nth-child(10), table:has(td:nth-child(11):hover) td:nth-child(11),
+table:has(td:nth-child(12):hover) td:nth-child(12), table:has(td:nth-child(13):hover) td:nth-child(13), 
+tr:nth-child(n):hover{
+    background-color: rgb(232, 242, 243);
+    font-weight: bold;
+}
+#header:nth-child(n):hover {
+    background-color: white;
+    font-weight: normal;
+}
+
+button {
+    border: 1px lightgrey solid;
+    border-radius: 5px;
+    background-color: white;
+    margin: 2px;
+}
+button:hover {
+    background-color: rgb(239, 239, 239);
+}
+#note-buttons *, #remaining-buttons * {
+    font-size: 14px;
+}
+#note-buttons {
+    display:flex;
+    justify-content: center;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+#note-buttons button {
+    width: 40px;
+    height:25px;
+    min-width: 40px;
+    min-height:25px;
+}
+#remaining-buttons {
+    display:flex;
+    justify-content: center;
+    margin-top: 5px;
+    flex-wrap: wrap-reverse;
+}
+#display-buttons button {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+}
+#format-buttons {
+    flex-direction: row;
+    display:flex;
+    margin-bottom: 5px;
+}
+#format-buttons button {
+    width: 90px;
+    height: 30px;
+
+    min-width: 90px;
+    min-height: 30px;
+    
+}
