@@ -86,26 +86,42 @@ function updateTable() {
         footer_children[i+1].innerHTML = 'RI<sub>' + header_data[i] + '</sub>';
     }
 
+    var prev_row_p = 0;
     for(let i = 0; i < CURRENT_NOTES.length; i++) {
         // Each row
         let row_children = document.getElementById("row-" + i).children;
 
         // Find what the difference is
-        let row_diff = 0;
-        if (i > 0) { row_diff = 0 - ((header_data[i] - header_data[0]) % 11); }
+        let row_difference = 0;
+        if (i > 0) { row_difference = (header_data[i] - header_data[i-1]); }
+        console.log(header_data)
+        console.log(prev_row_p)
+        console.log(row_difference)
 
-        if (row_diff < 0) {
-            row_diff += 12;
+        // header[1] - header[0] = 6
+        // so we want row[1]'s p to = row[0] p (0) - 6
+
+        // header[2] - header[1] = -3
+        // so we want row[2]'s p to = row[1]'s p +3
+
+        // so we want row[11]'s p to = row[10] p + 9
+
+        let row_p = prev_row_p - row_difference
+        let row_data = get_row(row_p);
+        let row_data_c = get_row(row_p, true);
+        prev_row_p = row_data_c[0];
+
+        if (row_p < 0) {
+            row_p += 12;
         }
-        else if (row_diff >= 12) {
-            row_diff -= 12;
+        else if (row_p >= 12) {
+            row_p -= 12;
         }
 
-        let row_data = get_row(row_diff);
 
         // Set P and R values
-        row_children[0].innerHTML = 'P<sub>' + row_diff + '</sub>';
-        row_children[row_children.length - 1].innerHTML = 'R<sub>' + row_diff + '</sub>';
+        row_children[0].innerHTML = 'P<sub>' + row_p + '</sub>';
+        row_children[row_children.length - 1].innerHTML = 'R<sub>' + row_p + '</sub>';
 
         // Set each cell
         for(let j = 0; j < row_data.length; j++) {
