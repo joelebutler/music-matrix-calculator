@@ -7,7 +7,7 @@ function noteDisplay(type) {
     CURRENT_DISPLAY_TYPE = type;
     if (type == "sharps") {
         for (i = 0; i <= 11; i++) {
-            document.getElementById("note-button-" + i).innerText = sharps_dict[i];
+            document.getElementById("note-button-" + i).innerHTML = sharps_dict[i];
         }
         let elements = document.getElementsByClassName("display-button");
         for (let i = 0; i < elements.length; i++) {
@@ -17,7 +17,7 @@ function noteDisplay(type) {
     }
     if (type == "flats") {
         for (i = 0; i <= 11; i++) {
-            document.getElementById("note-button-" + i).innerText = flats_dict[i];
+            document.getElementById("note-button-" + i).innerHTML = flats_dict[i];
         }
         let elements = document.getElementsByClassName("display-button");
         for (let i = 0; i < elements.length; i++) {
@@ -27,7 +27,7 @@ function noteDisplay(type) {
     }
     if (type == "classes") {
         for (i = 0; i <= 11; i++) {
-            document.getElementById("note-button-" + i).innerText = i;
+            document.getElementById("note-button-" + i).innerHTML = i;
         }
         let elements = document.getElementsByClassName("display-button");
         for (let i = 0; i < elements.length; i++) {
@@ -124,14 +124,14 @@ function updateTable() {
         // Set each cell
         for(let j = 0; j < row_data.length; j++) {
             if (CURRENT_DISPLAY_TYPE == "sharps") {
-                row_children[j + 1].innerText = sharps_dict[row_data[j]];
+                row_children[j + 1].innerHTML = sharps_dict[row_data[j]];
             }
             if (CURRENT_DISPLAY_TYPE == "flats") {
-                row_children[j + 1].innerText = flats_dict[row_data[j]];
+                row_children[j + 1].innerHTML = flats_dict[row_data[j]];
             }
 
             if (CURRENT_DISPLAY_TYPE == "classes") {
-                row_children[j + 1].innerText = row_data[j];
+                row_children[j + 1].innerHTML = row_data[j];
             }
         }
     }
@@ -167,30 +167,30 @@ function get_row(row, c_override = false){
 
 sharps_dict = {
     0: "C",
-    1: "C#",
+    1: "C<sup>&#x266f;</sup>",
     2: "D",
-    3: "D#",
+    3: "D<sup>&#x266f;</sup>",
     4: "E",
     5: "F",
-    6: "F#",
+    6: "F<sup>&#x266f;</sup>",
     7: "G",
-    8: "G#",
+    8: "G<sup>&#x266f;</sup>",
     9: "A",
-    10: "A#",
+    10: "A<sup>&#x266f;</sup>",
     11: "B"
 }
 flats_dict = {
     0: "C",
-    1: "Db",
+    1: 'D<sup class="flats">&#x266d;</sup>',
     2: "D",
-    3: "Eb",
+    3: 'E<sup class="flats">&#x266d;</sup>',
     4: "E",
     5: "F",
-    6: "Gb",
+    6: 'G<sup class="flats">&#x266d;</sup>',
     7: "G",
-    8: "Ab",
+    8: 'A<sup class="flats">&#x266d;</sup>',
     9: "A",
-    10: "Bb",
+    10: 'B<sup class="flats">&#x266d;</sup>',
     11: "B"
 }
 note_values = {
@@ -213,3 +213,4 @@ note_values = {
     "B": 11
 }
 
+noteDisplay("sharps");
