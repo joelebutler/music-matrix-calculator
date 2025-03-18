@@ -35,6 +35,16 @@ function noteDisplay(type) {
         }
         document.getElementById("pitch-classes").disabled = true;
     }
+    if (type == "classes-te") {
+        for (i = 0; i <= 11; i++) {
+            document.getElementById("note-button-" + i).innerHTML = classes_te_dict[i];
+        }
+        let elements = document.getElementsByClassName("display-button");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].disabled = false;
+        }
+        document.getElementById("pitch-classes-te").disabled = true;
+    }
     updateTable();
 }
 function addNote(note_num) {
@@ -133,6 +143,10 @@ function updateTable() {
             if (CURRENT_DISPLAY_TYPE == "classes") {
                 row_children[j + 1].innerHTML = row_data[j];
             }
+
+            if (CURRENT_DISPLAY_TYPE == "classes-te") {
+                row_children[j + 1].innerHTML = classes_te_dict[row_data[j]];
+            }
         }
     }
 }
@@ -178,6 +192,20 @@ sharps_dict = {
     9: "A",
     10: "A<sup>&#x266f;</sup>",
     11: "B"
+}
+classes_te_dict = {
+    0: "0",
+    1: "1",
+    2: "2",
+    3: "3",
+    4: "4",
+    5: "5",
+    6: "6",
+    7: "7",
+    8: "8",
+    9: "9",
+    10: "t",
+    11: "e"
 }
 flats_dict = {
     0: "C",
