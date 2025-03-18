@@ -94,9 +94,6 @@ function updateTable() {
         // Find what the difference is
         let row_difference = 0;
         if (i > 0) { row_difference = (header_data[i] - header_data[i-1]); }
-        console.log(header_data)
-        console.log(prev_row_p)
-        console.log(row_difference)
 
         // header[1] - header[0] = 6
         // so we want row[1]'s p to = row[0] p (0) - 6
@@ -107,6 +104,7 @@ function updateTable() {
         // so we want row[11]'s p to = row[10] p + 9
 
         let row_p = prev_row_p - row_difference
+        //console.log(row_p)
         let row_data = get_row(row_p);
         let row_data_c = get_row(row_p, true);
         prev_row_p = row_data_c[0];
@@ -156,10 +154,10 @@ function get_row(row, c_override = false){
     // Want (9): 9, 11
     for (let i = 0; i < CURRENT_NOTES.length; i++) {
         let x = CURRENT_NOTES[i] - basis;
-        if (x < 0) {
+        while (x < 0) {
             x += 12;
         }
-        else if (x >= 12) {
+        while (x >= 12) {
             x -= 12;
         }
         converted_row.push(x);
